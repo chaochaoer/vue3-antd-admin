@@ -85,7 +85,7 @@ export default defineComponent({
       loading: false
     })
     const queryFormRef = ref()
-    /* 延迟获取数据，防止数据获取太快loading闪动 */
+    /* 延迟获取数据，防止数据获取太快loading闪烁 */
     const _delay = async (result: any, timeStamp = 1e2): Promise<any> => {
       return await new Promise(resolve => setTimeout(() => resolve(result), timeStamp));
     }
