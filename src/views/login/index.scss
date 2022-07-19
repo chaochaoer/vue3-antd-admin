@@ -1,0 +1,32 @@
+.login-content {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #code {
+    border-radius: 4px;
+  }
+}
+
+.ant-form-item-control input {
+  height: 38px !important;
+}
+
+:deep(.ant-form-item-control-input) input {
+  height: 38px !important;
+}
+
+.ant-input-affix-wrapper :deep(.ant-input:not(:first-child)) {
+  padding-left: 3px !important;
+}
+
+.ant-btn {
+  height: 48px;
+}

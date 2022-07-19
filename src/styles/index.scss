@@ -1,0 +1,62 @@
+@import "./variables.scss";
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+div:focus {
+  outline: none;
+}
+
+.p {
+  &10 {
+    padding: 10px;
+  }
+  &20 {
+    padding: 20px;
+  }
+  &30 {
+    padding: 30px;
+  }
+  &-l {
+    &-10 {
+      padding-left: 10px;
+    }
+  }
+  &-b {
+    &-10 {
+      padding-bottom: 10px;
+    }
+  }
+}
