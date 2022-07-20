@@ -20,6 +20,7 @@
     "china-division": "^2.4.0",
     "core-js": "^3.8.3",
     "dayjs": "^1.11.3",
+    "enquire.js": "^2.1.6",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
