@@ -1,8 +1,8 @@
   <template>
   <a-layout class="layout">
-    <a-drawer v-if="isMobile" v-model:visible="collapsed" placement="left" :closable="false" width="auto"
+    <a-drawer v-if="isMobile" v-model:visible="visible" placement="left" :closable="false" width="auto"
       :bodyStyle="{ padding: 0 }">
-      <a-layout-sider :trigger="null" style="height:100%" collapsible>
+      <a-layout-sider :trigger="null" v-model:collapsed="collapsed" style="height:100%" collapsible>
         <sideBar />
       </a-layout-sider>
     </a-drawer>
@@ -12,8 +12,8 @@
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
         <navBar>
-          <menu-unfold-outlined v-if="collapsed" @click="() => (collapsed = !collapsed)" class="trigger" />
-          <menu-fold-outlined v-else @click="() => (collapsed = !collapsed)" class="trigger" />
+          <menu-unfold-outlined v-if="collapsed" @click="!handleFold()" class="trigger" />
+          <menu-fold-outlined v-else @click="handleFold" class="trigger" />
         </navBar>
       </a-layout-header>
       <a-divider style="height: 1px; background-color: #eee;margin: 0;" />
@@ -31,8 +31,34 @@ import tabs from './tabs/index.vue';
 import { ref, watch } from 'vue'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue';
 import customRouterView from '@/components/customRouterView/index.vue';
+import enquireJs from 'enquire.js'
 const collapsed = ref<boolean>(false)
+const visible = ref<boolean>(false)
 const isMobile = ref<boolean>(false)
+
+const handleFold = () => {
+  if (isMobile.value) {
+    visible.value = !visible.value
+    return collapsed.value = false
+  }
+  return collapsed.value = !collapsed.value
+}
+enquireJs.register('only screen and (max-width: 750px)', {
+  match: function () {
+    isMobile.value = true
+    collapsed.value = false
+  },
+  unmatch: function () {
+    isMobile.value = false
+    collapsed.value = false
+    visible.value = false
+  }
+})
+enquireJs.register('only screen and (max-width: 1400px)', {
+  match: function () {
+    collapsed.value = true
+  },
+})
 </script>
 <style scoped lang="scss">
 .layout {
