@@ -1,8 +1,13 @@
   <template>
   <a-layout class="layout">
-    <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible
-      :style="{ width: !collapsed ? 0 : '250px' }">
-      <sideBar></sideBar>
+    <a-drawer v-if="isMobile" v-model:visible="collapsed" placement="left" :closable="false" width="auto"
+      :bodyStyle="{ padding: 0 }">
+      <a-layout-sider :trigger="null" style="height:100%" collapsible>
+        <sideBar />
+      </a-layout-sider>
+    </a-drawer>
+    <a-layout-sider v-else v-model:collapsed="collapsed" :trigger="null" collapsible>
+      <sideBar />
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
@@ -27,6 +32,7 @@ import { ref, watch } from 'vue'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons-vue';
 import customRouterView from '@/components/customRouterView/index.vue';
 const collapsed = ref<boolean>(false)
+const isMobile = ref<boolean>(false)
 </script>
 <style scoped lang="scss">
 .layout {

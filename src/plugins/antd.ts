@@ -24,7 +24,8 @@ import {
   Spin,
   TabPane,
   Tabs,
-  Result
+  Result,
+  Drawer
 } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.variable.min.css';
 import 'dayjs/locale/zh-cn';
@@ -56,6 +57,7 @@ export function setupAntd(app: any) {
     .use(TabPane)
     .use(Tabs)
     .use(Result)
+    .use(Drawer)
     .use(DatePicker)
   return app
 }
