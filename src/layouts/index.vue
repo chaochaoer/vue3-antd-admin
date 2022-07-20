@@ -43,7 +43,7 @@ const handleFold = () => {
   }
   return collapsed.value = !collapsed.value
 }
-enquireJs.register('only screen and (max-width: 750px)', {
+enquireJs.register('only screen and (max-width: 576px)', {
   match: function () {
     isMobile.value = true
     collapsed.value = false
@@ -54,7 +54,7 @@ enquireJs.register('only screen and (max-width: 750px)', {
     visible.value = false
   }
 })
-enquireJs.register('only screen and (max-width: 1400px)', {
+enquireJs.register('only screen and (max-width: 768px)', {
   match: function () {
     collapsed.value = true
   },
